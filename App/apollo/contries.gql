@@ -1,0 +1,37 @@
+query getCountries($filter: CountryFilterInput) {
+  countries: countries(filter: $filter) {
+    ...CountryMinimal
+  }
+}
+
+query getCountryByCode($code: ID!) {
+  country(code: $code) {
+    ...Country
+  }
+}
+
+fragment CountryMinimal on Country {
+  code
+  name
+  capital
+  emoji
+  emojiU
+}
+
+fragment Country on Country {
+  code
+  name
+  phone
+  emoji
+  continent {
+    code
+    name
+  }
+}
+
+fragment Language on Language {
+  code
+  name
+  native
+  rtl
+}

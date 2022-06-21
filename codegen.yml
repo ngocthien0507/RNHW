@@ -1,0 +1,28 @@
+overwrite: true
+schema:
+  - https://countries.trevorblades.com
+documents: 'App/apollo/*.gql'
+generates:
+  App/apollo/generated.tsx:
+    hooks:
+      afterOneFileWrite:
+        - tslint --fix
+      afterAllFileWrite:
+        - prettier --write
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      apolloReactCommonImportFrom: '@apollo/client'
+      apolloReactHocImportFrom: '@apollo/client'
+      reactApolloVersion: 3
+      nonOptionalTypename: true
+      addDocBlocks: true
+      withHooks: true
+      withMutationOptionsType: true
+      withResultType: true
+      withHOC: false
+      withComponent: false
+      skipTypename: false
+      documentMode: documentNode

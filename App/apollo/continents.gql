@@ -1,0 +1,14 @@
+query getContinentByCode($code: ID!) {
+  continent(code: $code) {
+    ...Continent
+  }
+}
+
+fragment Continent on Continent {
+  code
+  name
+  countries {
+    code
+    name
+  }
+}
