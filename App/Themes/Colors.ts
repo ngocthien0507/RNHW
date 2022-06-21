@@ -1,5 +1,5 @@
-const colors = {
-  transparent: 'transparent',
+const Light = {
+  Transparent: 'transparent',
   TextColor: '#000',
   BackgroundColor: '#fff',
   SubText: '#757575',
@@ -7,17 +7,8 @@ const colors = {
   Link: '#0179E9'
 }
 
-const light = {
-  transparent: 'transparent',
-  TextColor: '#000',
-  BackgroundColor: '#fff',
-  SubText: '#757575',
-  Primary: '#F6BACB',
-  Link: '#0179E9'
-}
-
-const dark = {
-  transparent: 'transparent',
+const Dark = {
+  Transparent: 'transparent',
   TextColor: '#fff',
   BackgroundColor: '#000',
   SubText: '#ffffff',
@@ -25,6 +16,12 @@ const dark = {
   Link: '#0179E9'
 }
 
-export { light, dark }
+export type ColorTypes =
+  | 'Transparent'
+  | 'BackgroundColor'
+  | 'TextColor'
+  | 'SubText'
+  | 'Primary'
+  | 'Link'
 
-export default colors
+export { Light, Dark }

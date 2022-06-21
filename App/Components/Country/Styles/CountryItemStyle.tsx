@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { TypographyStyles, Colors } from '@/Themes'
+import { TypographyStyles } from '@/Themes'
 
 export default StyleSheet.create({
   countryWrapper: {
@@ -8,23 +8,20 @@ export default StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     marginVertical: 10,
-    backgroundColor: Colors.BackgroundColor,
     padding: 5
   },
   text: {
-    ...TypographyStyles.titleSmall,
-    color: Colors.TextColor
+    ...TypographyStyles.titleSmall
   },
   subText: {
-    ...TypographyStyles.body1,
-    color: Colors.SubText
+    ...TypographyStyles.body1
   },
   flag: {
     fontSize: 50,
     marginRight: 5
   },
   shadow: {
-    shadowColor: Colors.TextColor,
+    shadowColor: 'black',
     shadowOffset: {
       width: 0,
       height: 2

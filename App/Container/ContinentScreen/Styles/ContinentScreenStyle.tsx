@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native'
-import { Colors, TypographyStyles } from '@/Themes'
+import { Light, TypographyStyles } from '@/Themes'
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: Colors.BackgroundColor,
     paddingVertical: 10,
     paddingHorizontal: 20
   },
@@ -19,7 +18,7 @@ export default StyleSheet.create({
     ...TypographyStyles.body1
   },
   continentText: {
-    color: Colors.Link,
+    color: Light.Link,
     textDecorationLine: 'underline'
   },
   infoWrapper: {

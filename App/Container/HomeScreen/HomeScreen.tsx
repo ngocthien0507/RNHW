@@ -9,7 +9,11 @@ import {
 } from '@/apollo/generated'
 
 // Navigation
-import { useNavigation, NavigationProp } from '@react-navigation/native'
+import {
+  useNavigation,
+  NavigationProp,
+  useTheme
+} from '@react-navigation/native'
 import { AppStackType } from '@/Navigation/Type/AppNavigationType'
 
 // Component
@@ -17,6 +21,7 @@ import { CountryItem } from '@/Components'
 
 // Styles
 import styles from './Styles/HomeScreenStyles'
+import {} from '@/Themes'
 
 type NavigationPropType = NavigationProp<AppStackType, 'HomeScreen'>
 
@@ -24,6 +29,8 @@ const renderKeyExtractor = (item: CountryMinimalFragment, index: number) =>
   `CountryKey${item.code}${index}`
 const HomeScreen = () => {
   const navigation = useNavigation<NavigationPropType>()
+
+  const theme = useTheme()
 
   const { data, loading } = useGetCountriesQuery({
     variables: {},
@@ -60,9 +67,32 @@ const HomeScreen = () => {
   ])
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.blankHeader} />
-      <Text style={styles.text}>List of countries</Text>
+    <SafeAreaView
+      style={[
+        styles.container,
+        {
+          backgroundColor: theme.colors.BackgroundColor
+        }
+      ]}
+    >
+      <View
+        style={[
+          styles.blankHeader,
+          {
+            backgroundColor: theme.colors.Primary
+          }
+        ]}
+      />
+      <Text
+        style={[
+          styles.text,
+          {
+            color: theme.colors.TextColor
+          }
+        ]}
+      >
+        List of countries
+      </Text>
       <FlatList
         contentContainerStyle={styles.list}
         data={countries}

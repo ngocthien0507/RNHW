@@ -1,10 +1,9 @@
 import { StyleSheet } from 'react-native'
-import { Colors, TypographyStyles } from '@/Themes'
+import { TypographyStyles } from '@/Themes'
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: Colors.BackgroundColor
+    flex: 1
   },
   list: {
     paddingHorizontal: 15,
@@ -13,12 +12,10 @@ export default StyleSheet.create({
   blankHeader: {
     width: '100%',
     height: 200,
-    backgroundColor: Colors.Primary,
     borderBottomLeftRadius: 40
   },
   text: {
     ...TypographyStyles.titleMedium,
-    color: Colors.TextColor,
     marginTop: 10,
     marginHorizontal: 20
   }

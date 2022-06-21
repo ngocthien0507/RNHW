@@ -1,4 +1,4 @@
 import TypographyStyles from './TypographyStyles'
-import Colors from './Colors'
+import { Dark, Light } from './Colors'
 
-export { Colors, TypographyStyles }
+export { TypographyStyles, Dark, Light }

@@ -10,13 +10,13 @@ import {
   NavigationProp,
   useRoute,
   RouteProp,
-  StackActions
+  StackActions,
+  useTheme
 } from '@react-navigation/native'
 import { AppStackType } from '@/Navigation/Type/AppNavigationType'
 
 // Styles
 import styles from './Styles/ContinentScreenStyle'
-import { Colors } from '@/Themes'
 
 type NavigationPropType = NavigationProp<AppStackType, 'ContinentScreen'>
 
@@ -35,6 +35,12 @@ const ContinentScreen = () => {
   const route = useRoute<RouteType>()
 
   const { code } = route.params
+
+  const theme = useTheme()
+
+  const textColor = {
+    color: theme.colors.TextColor
+  }
 
   const { data, loading } = useGetContinentByCodeQuery({
     fetchPolicy: 'cache-and-network',
@@ -69,20 +75,27 @@ const ContinentScreen = () => {
 
   if (!data) {
     return loading ? (
-      <ActivityIndicator size={'large'} color={Colors.TextColor} />
+      <ActivityIndicator size={'large'} color={theme.colors.TextColor} />
     ) : null
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{continent?.name}</Text>
+    <View
+      style={[
+        styles.container,
+        {
+          backgroundColor: theme.colors.BackgroundColor
+        }
+      ]}
+    >
+      <Text style={[styles.title, textColor]}>{continent?.name}</Text>
 
       <View style={styles.infoWrapper}>
-        <Text style={styles.text}>code</Text>
-        <Text style={styles.text}>{continent?.code}</Text>
+        <Text style={(styles.text, textColor)}>code</Text>
+        <Text style={(styles.text, textColor)}>{continent?.code}</Text>
       </View>
       <View style={styles.infoWrapper}>
-        <Text style={styles.text}>countries</Text>
+        <Text style={(styles.text, textColor)}>countries</Text>
         <FlatList
           contentContainerStyle={styles.list}
           data={countries}
