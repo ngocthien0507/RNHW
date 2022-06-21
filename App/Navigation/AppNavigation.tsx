@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { StyleSheet, TouchableOpacity, Text } from 'react-native'
 
 // NavigationActions
 import { screenTracking } from './NavigationAction'
+
+// Components
+import { FloatingButton } from '@/Components'
 
 // Types
 import { AppStackType } from './Type/AppNavigationType'
@@ -78,34 +80,9 @@ const AppNavigation = () => {
           />
         </AppStack.Navigator>
       </NavigationContainer>
-      <TouchableOpacity style={styles.floatingButton} onPress={onChangeTheme}>
-        <Text>{isDarkTheme ? 'Light' : 'Dark'}</Text>
-      </TouchableOpacity>
+      <FloatingButton onPress={onChangeTheme} />
     </SafeAreaProvider>
   )
 }
-
-const styles = StyleSheet.create({
-  floatingButton: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: Light.Primary,
-    position: 'absolute',
-    bottom: 10,
-    right: 10,
-
-    shadowColor: 'black',
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
 
 export default AppNavigation
