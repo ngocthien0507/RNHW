@@ -19,6 +19,18 @@ import { Light, Dark } from '@/Themes'
 
 const defaultCardStyle = { backgroundColor: 'white' }
 
+const config = {
+  screens: {
+    CountryDetailScreen: 'country/:code',
+    ContinentScreen: 'continent/:code'
+  }
+}
+
+const linking = {
+  prefixes: ['rnhw://'],
+  config: config
+}
+
 const AppNavigation = () => {
   const AppStack = createNativeStackNavigator<AppStackType>()
 
@@ -36,7 +48,11 @@ const AppNavigation = () => {
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer theme={theme} onStateChange={screenTracking}>
+      <NavigationContainer
+        linking={linking}
+        theme={theme}
+        onStateChange={screenTracking}
+      >
         <AppStack.Navigator
           screenOptions={{
             contentStyle: defaultCardStyle,
