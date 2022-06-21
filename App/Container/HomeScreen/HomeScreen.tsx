@@ -21,7 +21,6 @@ import { CountryItem } from '@/Components'
 
 // Styles
 import styles from './Styles/HomeScreenStyles'
-import {} from '@/Themes'
 
 type NavigationPropType = NavigationProp<AppStackType, 'HomeScreen'>
 
